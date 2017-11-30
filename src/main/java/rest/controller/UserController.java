@@ -77,5 +77,12 @@ public class UserController {
 			return new ResponseEntity<User>(user, HttpStatus.OK);
 		}
 	}
+	
+	//接受使用RestTemplate模拟的POST表单提交
+	@RequestMapping(method=RequestMethod.POST, path="/post-form-emulation")
+	public @ResponseBody User receive_form_submission(String name, Integer age) {
+		System.out.println("receive_form_submission is called, name is "+name + ", age is "+age);
+		return new User(name, age);
+	}
 
 }
